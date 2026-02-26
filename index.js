@@ -22,7 +22,9 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
-const moviesRoutes = require('./routes/moviesRoutes');  
+const moviesRoutes = require('./routes/moviesRoutes'); 
+app.use(express.urlencoded({ extended: true }));  
+app.use(express.json());
 app.use('/movies', moviesRoutes);
 
 
