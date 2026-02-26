@@ -1,17 +1,31 @@
 ###
-
 GET http://localhost:3000/
 
 ###
-
 GET http://localhost:3000/movies
 
 ###
-POST http://localhost:3000/movies
+GET http://localhost:3000/movies?releaseYear=2010
 
 ###
+GET http://localhost:3000/movies/69a06b999d2ce39ba816f9b6
 
+###
+POST http://localhost:3000/movies
+Content-Type: application/json
+
+{
+  "title": "Inception",
+  "releaseYear": 2010
+}
+
+###
 DELETE http://localhost:3000/movies
 
 ###
-PUT http://localhost:3000/movies
+PUT http://localhost:3000/movies/69a06b999d2ce39ba816f9b6
+Content-Type: application/json
+
+{
+  "releaseYear": 2020
+}
