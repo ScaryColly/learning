@@ -1,28 +1,31 @@
+
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
+const MONGO_URI = process.env.MONGO_URI;
+
+const mongoose = require('mongoose');
+async function startServer() {
+  try {
+    await mongoose.connect(MONGO_URI);
+    console.log("✅ Connected to MongoDB");
+  } catch (err) {
+    console.error("❌ Failed to connect to MongoDB:", err);
+    process.exit(1);
+  }
+}
+
+startServer();
+
 
 app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
-app.get('/movies', (req, res) => {
-  res.send('start wars!');
-});
-
-app.post('/movies', (req, res) => {
-  res.send('post start wars!');
-});
-
-app.delete('/movies', (req, res) => {
-  res.send('delete start wars!');
-});
-
-app.put('/movies', (req, res) => {
-  res.send('put start wars!');
-});
+const moviesRoutes = require('./routes/moviesRoutes');  
+app.use('/movies', moviesRoutes);
 
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+app.listen(PORT, () => {
+  console.log(`Example app listening at http://localhost:${PORT}`);
 });
