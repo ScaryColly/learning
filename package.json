@@ -15,7 +15,7 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "start": "node --env-file=.env index.js",
+    "start": "tsc && node --env-file=.env ./dist/index.js",
     "dev": "nodemon --env-file=.env index.js"
   },
   "dependencies": {
@@ -24,6 +24,12 @@
     "mongoose": "^9.2.2"
   },
   "devDependencies": {
-    "nodemon": "^3.1.14"
+    "@eslint/js": "^10.0.1",
+    "@types/express": "^5.0.6",
+    "eslint": "^10.0.2",
+    "globals": "^17.3.0",
+    "nodemon": "^3.1.14",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.56.1"
   }
 }

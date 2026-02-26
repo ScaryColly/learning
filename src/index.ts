@@ -1,10 +1,12 @@
+import express from "express";
+import mongoose from "mongoose";
+import { moviesRoutes } from "./routes/moviesRoutes";
+import { commentsRoutes } from "./routes/commentsRoutes";
 
-const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
-const MONGO_URI = process.env.MONGO_URI;
+const MONGO_URI = process.env.MONGO_URI || "";
 
-const mongoose = require('mongoose');
 async function startServer() {
   try {
     await mongoose.connect(MONGO_URI);
@@ -17,16 +19,14 @@ async function startServer() {
 
 startServer();
 
-
-app.get('/', (req, res) => {
-  res.send('Hello World!');
+app.get("/", (req, res) => {
+  res.send("Hello World!");
 });
 
-const moviesRoutes = require('./routes/moviesRoutes'); 
-app.use(express.urlencoded({ extended: true }));  
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use('/movies', moviesRoutes);
-
+app.use("/movies", moviesRoutes);
+app.use("/movies", commentsRoutes);
 
 app.listen(PORT, () => {
   console.log(`Example app listening at http://localhost:${PORT}`);
