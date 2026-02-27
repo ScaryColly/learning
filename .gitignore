@@ -1,2 +1,9 @@
 node_modules/
 .env
+dist
+
+### macOS ###
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
