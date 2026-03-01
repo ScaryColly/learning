@@ -11,12 +11,25 @@ GET http://localhost:3000/movies?releaseYear=2010
 GET http://localhost:3000/movies/69a06b999d2ce39ba816f9b6
 
 ###
+# unauthenticated POST - will 401/403 once middleware is active
 POST http://localhost:3000/movies
 Content-Type: application/json
 
 {
   "title": "Inception",
   "releaseYear": 2010
+}
+
+###
+# authenticated POST – include the token returned from /auth/login
+# copy/paste the value you get back or use a variable like {{token}}
+POST http://localhost:3000/movies
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OWExY2QyOWU5YWJmNGZmNzRmNmZjMzgiLCJlbWFpbCI6InRlc3QyQGV4YW1wbGUuY29tIiwiaWF0IjoxNzcyMzk0ODQ4LCJleHAiOjE3NzI0ODEyNDh9.gBqhSP8qxHwHycntO73_xfXSFODyUxXEGicLBlWFR_M
+
+{
+  "title": "Harry Potter",
+  "releaseYear": 2011
 }
 
 ###
@@ -28,4 +41,31 @@ Content-Type: application/json
 
 {
   "releaseYear": 2020
+}
+
+###
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{
+  "email": "test3@example.com",
+  "password": "password123dfdsfs"
+}
+
+###
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "email": "test2@example.com",
+  "password": "password123dfs"
+}
+
+###
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "email": "test3@example.com",
+  "password": "password123dfdsfs"
 }
