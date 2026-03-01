@@ -25,7 +25,7 @@ Content-Type: application/json
 # copy/paste the value you get back or use a variable like {{token}}
 POST http://localhost:3000/movies
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OWExY2QyOWU5YWJmNGZmNzRmNmZjMzgiLCJlbWFpbCI6InRlc3QyQGV4YW1wbGUuY29tIiwiaWF0IjoxNzcyMzk0ODQ4LCJleHAiOjE3NzI0ODEyNDh9.gBqhSP8qxHwHycntO73_xfXSFODyUxXEGicLBlWFR_M
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OWE0YTgyNzRmNmRmMDBhZTEwNTFlYTYiLCJlbWFpbCI6InRlc3QzQGV4YW1wbGUuY29tIiwiaWF0IjoxNzcyMzk4OTQxLCJleHAiOjE3NzI0MDI1NDF9.eaKmxBaOqVFlD2eYhiSP_1Hlgr8p3kKLVQGcK8B-2A4
 
 {
   "title": "Harry Potter",

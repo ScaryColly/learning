@@ -1,6 +1,9 @@
 import express from "express";
 import mongoose from "mongoose";
+import swaggerUi from "swagger-ui-express";
+import { swaggerSpec } from "./swagger";
 import { commentsRoutes, authRoutes, moviesRoutes } from "./routes";
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 const MONGO_URI = process.env.MONGO_URI || "";
@@ -23,6 +26,10 @@ app.get("/", (req, res) => {
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+// swagger documentation route
+app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
 app.use("/movies", moviesRoutes);
 app.use("/movies", commentsRoutes);
 app.use("/auth", authRoutes);
